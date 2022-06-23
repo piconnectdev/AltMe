@@ -13,7 +13,7 @@ class TezosAssociatedAddressDisplayInList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TezosAssociatedAddressInGrid(
+    return TezosAssociatedAddressRecto(
       credentialModel: credentialModel,
     );
   }
@@ -76,50 +76,10 @@ class TezosAssociatedAddressRecto extends Recto {
               id: 'address',
               child: FractionallySizedBox(
                 widthFactor: 0.7,
-                child: Text(
+                child: MyText(
                   // ignore: lines_longer_than_80_chars
                   '${tezosAssociatedAddress.associatedAddress?.isEmpty == true ? '' : tezosAssociatedAddress.associatedAddress}',
                   style: Theme.of(context).textTheme.tezosAssociatedAddressData,
-                ),
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class TezosAssociatedAddressInGrid extends Recto {
-  const TezosAssociatedAddressInGrid({Key? key, required this.credentialModel})
-      : super(key: key);
-
-  final CredentialModel credentialModel;
-
-  @override
-  Widget build(BuildContext context) {
-    final tezosAssociatedAddress = credentialModel.credentialPreview
-        .credentialSubjectModel as TezosAssociatedAddressModel;
-    return CredentialImage(
-      image: ImageStrings.associatedWalletFront,
-      child: AspectRatio(
-        aspectRatio: Sizes.credentialAspectRatio,
-        child: CustomMultiChildLayout(
-          delegate: TezosAssociatedAddressDelegate(position: Offset.zero),
-          children: [
-            LayoutId(
-              id: 'address',
-              child: FractionallySizedBox(
-                widthFactor: 0.7,
-                child: Text(
-                  // ignore: lines_longer_than_80_chars
-                  '${tezosAssociatedAddress.associatedAddress?.isEmpty == true ? '' : tezosAssociatedAddress.associatedAddress}',
-                  style: Theme.of(context)
-                      .textTheme
-                      .tezosAssociatedAddressData
-                      .copyWith(
-                        fontSize: 10,
-                      ),
                 ),
               ),
             ),
