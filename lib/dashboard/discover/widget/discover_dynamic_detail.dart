@@ -2,6 +2,7 @@ import 'package:altme/app/app.dart';
 import 'package:altme/theme/theme.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:sentry_flutter/sentry_flutter.dart';
 
 class DiscoverDynamicDetial extends StatelessWidget {
   const DiscoverDynamicDetial({
@@ -36,6 +37,9 @@ class DiscoverDynamicDetial extends StatelessWidget {
               style: valueTheme,
               recognizer: TapGestureRecognizer()
                 ..onTap = () async {
+                  await Sentry.captureMessage(
+                    'got testing error',
+                  );
                   if (format != null) {
                     if (format == AltMeStrings.uri) {
                       await LaunchUrl.launch(value);

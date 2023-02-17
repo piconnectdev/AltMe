@@ -1,6 +1,6 @@
 name: altme
 description: AltMe Flutter App 
-version: 1.9.3+144
+version: 1.9.4+145
 publish_to: none
 
 environment:
@@ -92,6 +92,7 @@ dependencies:
   secure_application: ^3.8.0
   secure_storage:
     path: packages/secure_storage
+  sentry_flutter: ^6.20.1
   share_plus: ^6.3.0
   shimmer: ^2.0.0
   switcher: ^1.0.0
