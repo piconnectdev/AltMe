@@ -14,9 +14,11 @@ Future<void> initiateEbsiCredentialIssuance(
   final Ebsi ebsi = Ebsi(Dio());
   final Uri uriFromScannedResponse = Uri.parse(scannedResponse);
   if (uriFromScannedResponse.queryParameters['pre-authorized_code'] != null) {
-    final mnemonic = await getSecureStorage.get(SecureStorageKeys.ssiMnemonic);
-    final privateKey = await ebsi.privateKeyFromMnemonic(mnemonic: mnemonic!);
-
+    // ignore: lines_longer_than_80_chars
+    // final mnemonic = await getSecureStorage.get(SecureStorageKeys.ssiMnemonic);
+    // ignore: lines_longer_than_80_chars
+    // final privateKey = await ebsi.privateKeyFromMnemonic(mnemonic: mnemonic!);
+    final String privateKey = await getRandomP256PrivateKey(secureStorage);
     final dynamic encodedCredentialFromEbsi = await ebsi.getCredential(
       uriFromScannedResponse,
       null,

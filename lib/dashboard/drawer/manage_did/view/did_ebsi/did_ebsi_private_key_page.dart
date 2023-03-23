@@ -26,10 +26,15 @@ class _DidEbsiPrivateKeyPageState extends State<DidEbsiPrivateKeyPage>
   late Animation<double> animation;
   late AnimationController animationController;
 
+  // ignore: lines_longer_than_80_chars
   Future<String> getPrivateKey() async {
     final ebsi = Ebsi(Dio());
-    final mnemonic = await getSecureStorage.get(SecureStorageKeys.ssiMnemonic);
-    final privateKey = await ebsi.privateKeyFromMnemonic(mnemonic: mnemonic!);
+    // ignore: lines_longer_than_80_chars
+    // final mnemonic = await getSecureStorage.get(SecureStorageKeys.ssiMnemonic);
+    // ignore: lines_longer_than_80_chars
+    // final privateKey = await ebsi.privateKeyFromMnemonic(mnemonic: mnemonic!);
+    final String privateKey = await getRandomP256PrivateKey(getSecureStorage);
+
     return privateKey;
   }
 
