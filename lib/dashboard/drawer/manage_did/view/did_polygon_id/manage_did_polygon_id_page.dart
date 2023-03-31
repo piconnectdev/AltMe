@@ -3,7 +3,7 @@ import 'package:altme/dashboard/drawer/drawer.dart';
 import 'package:altme/l10n/l10n.dart';
 
 import 'package:flutter/material.dart';
-import 'package:polygonid/polygonid.dart';
+// import 'package:polygonid/polygonid.dart';
 import 'package:secure_storage/secure_storage.dart';
 
 class ManageDidPolygonIdPage extends StatelessWidget {
@@ -17,10 +17,10 @@ class ManageDidPolygonIdPage extends StatelessWidget {
   }
 
   Future<String> getDid() async {
-    final PolygonId polygonId = PolygonId();
+    // final PolygonId polygonId = PolygonId();
     final mnemonic = await getSecureStorage.get(SecureStorageKeys.ssiMnemonic);
-    final identity = await polygonId.addIdentity(mnemonic: mnemonic!);
-    return identity.did;
+    // final identity = await polygonId.addIdentity(mnemonic: mnemonic!);
+    return 'fake identity.did';
   }
 
   @override

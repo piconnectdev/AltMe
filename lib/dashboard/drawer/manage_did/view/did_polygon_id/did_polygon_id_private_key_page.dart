@@ -3,7 +3,7 @@ import 'package:altme/l10n/l10n.dart';
 import 'package:altme/theme/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:polygonid/polygonid.dart';
+// import 'package:polygonid/polygonid.dart';
 import 'package:secure_storage/secure_storage.dart';
 
 class DidPolygonIdPrivateKeyPage extends StatefulWidget {
@@ -27,11 +27,11 @@ class _DidPolygonIdPrivateKeyPageState extends State<DidPolygonIdPrivateKeyPage>
   late AnimationController animationController;
 
   Future<String> getPrivateKey() async {
-    final PolygonId polygonId = PolygonId();
+    // final PolygonId polygonId = PolygonId();
     final mnemonic = await getSecureStorage.get(SecureStorageKeys.ssiMnemonic);
-    final privateKey =
-        await polygonId.privateKeyJWTFromMnemonic(mnemonic: mnemonic!);
-    return privateKey;
+    // final privateKey =
+    // await polygonId.privateKeyJWTFromMnemonic(mnemonic: mnemonic!);
+    return 'fake_privateKey';
   }
 
   @override
