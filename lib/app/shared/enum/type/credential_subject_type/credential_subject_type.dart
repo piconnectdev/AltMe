@@ -58,4 +58,6 @@ enum CredentialSubjectType {
   twitterCard,
   euDiplomaCard,
   euVerifiableId,
+  kycAgeCredential,
+  kycCountryOfResidence,
 }
