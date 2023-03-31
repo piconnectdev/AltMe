@@ -42,7 +42,7 @@ class OnBoardingGenPhraseCubit extends Cubit<OnBoardingGenPhraseState> {
   Future<void> generateSSIAndCryptoAccount(List<String> mnemonic) async {
     emit(state.loading());
     try {
-      final walletAddress = await generateAccount(
+      await generateAccount(
         mnemonic: mnemonic,
         secureStorageProvider: secureStorageProvider,
         keyGenerator: keyGenerator,
@@ -54,7 +54,7 @@ class OnBoardingGenPhraseCubit extends Cubit<OnBoardingGenPhraseState> {
         polygonId: polygonId,
       );
       await secureStorageProvider.set(
-        SecureStorageKeys.hasVerifiedMnemonics+walletAddress,
+        SecureStorageKeys.hasVerifiedMnemonics,
         'no',
       );
       emit(state.success());

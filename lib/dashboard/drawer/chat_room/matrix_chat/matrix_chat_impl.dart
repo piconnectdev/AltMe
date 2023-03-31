@@ -53,7 +53,7 @@ class MatrixChatImpl extends MatrixChatInterface {
   @override
   Future<User> init() async {
     logger.i('init()');
-    if (user != null) {
+    if (client != null && user != null) {
       return user!;
     }
     final ssiKey = await secureStorageProvider.get(SecureStorageKeys.ssiKey);
@@ -91,6 +91,9 @@ class MatrixChatImpl extends MatrixChatInterface {
 
   Future<void> _initClient() async {
     try {
+      if (client != null) {
+        await dispose();
+      }
       client = Client(
         'AltMeUser',
         databaseBuilder: (_) async {
@@ -268,6 +271,7 @@ class MatrixChatImpl extends MatrixChatInterface {
       final room = client!.getRoomById(roomId);
       if (room == null) {
         await client!.joinRoomById(roomId);
+        await enableRoomEncyption(roomId);
       }
       final eventId = await client!.getRoomById(roomId)?.sendTextEvent(
             partialText.text,
@@ -303,6 +307,7 @@ class MatrixChatImpl extends MatrixChatInterface {
       final room = client!.getRoomById(roomId);
       if (room == null) {
         await client!.joinRoomById(roomId);
+        await enableRoomEncyption(roomId);
       }
       await client!.getRoomById(roomId)?.sendFileEvent(
             MatrixFile(
@@ -346,6 +351,7 @@ class MatrixChatImpl extends MatrixChatInterface {
         final room = client!.getRoomById(roomId);
         if (room == null) {
           await client!.joinRoomById(roomId);
+          await enableRoomEncyption(roomId);
         }
         await client!.getRoomById(roomId)?.sendFileEvent(
               MatrixFile(
@@ -512,7 +518,8 @@ class MatrixChatImpl extends MatrixChatInterface {
       return loginResonse.userId!;
     } catch (e, s) {
       logger.i('e: $e, s: $s');
-      return '@$username:${Urls.matrixHomeServer.replaceAll('https://', '')}';
+      return '@$username:${Urls.matrixHomeServer.replaceAll('https://', '')}'
+          .toLowerCase();
     }
   }
 
