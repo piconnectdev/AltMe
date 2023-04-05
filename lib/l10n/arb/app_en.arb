@@ -341,7 +341,7 @@
   "networkAndRegistries": "Network & Registries",
   "chooseNetwork": "Choose Network",
   "chooseRegistry": "Choose Registry",
-  "chooseIssuersRegistry": "Choose issuers registry",
+  "chooseIssuersRegistry": "Verifialble Data Registry",
   "network": "Network",
   "issuerRegistry": "Issuer Registry",
   "about": "About",
@@ -834,5 +834,7 @@
   "authenticationFailed": "Authentication Failed.",
   "documentType": "Document Type",
   "countryCode": "Country Code",
-  "deviceIncompatibilityMessage": "Sorry, your device is not compatible for this feature."
+  "deviceIncompatibilityMessage": "Sorry, your device is not compatible for this feature.",
+  "polygon": "Polygon",
+  "ebsi": "EBSI"
 }

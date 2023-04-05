@@ -770,7 +770,9 @@
     "authenticationFailed",
     "documentType",
     "countryCode",
-    "deviceIncompatibilityMessage"
+    "deviceIncompatibilityMessage",
+    "polygon",
+    "ebsi"
   ],
 
   "es": [
@@ -1544,7 +1546,9 @@
     "authenticationFailed",
     "documentType",
     "countryCode",
-    "deviceIncompatibilityMessage"
+    "deviceIncompatibilityMessage",
+    "polygon",
+    "ebsi"
   ],
 
   "fr": [
@@ -1603,7 +1607,9 @@
     "authenticationFailed",
     "documentType",
     "countryCode",
-    "deviceIncompatibilityMessage"
+    "deviceIncompatibilityMessage",
+    "polygon",
+    "ebsi"
   ],
 
   "it": [
@@ -2377,6 +2383,8 @@
     "authenticationFailed",
     "documentType",
     "countryCode",
-    "deviceIncompatibilityMessage"
+    "deviceIncompatibilityMessage",
+    "polygon",
+    "ebsi"
   ]
 }
